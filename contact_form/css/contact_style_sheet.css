@@ -1,0 +1,105 @@
+/*Variables setup based on in-class examples*/
+:root { 
+    --backgroundColor:rgb(60, 60, 60);
+    --textColor:rgb(235, 242, 250);
+    --accentBlue:rgb(63, 185, 255);
+    --darkerBlue:rgb(0, 147, 232);
+    --leftMargin:70px;
+    --textLongWidth:446px;
+    --textShortWidth:170px;
+}
+
+
+/*sets text and background colors, sets margin. Used W3 Schools*/
+body{
+    background-color:var(--backgroundColor);
+    color:var(--textColor);
+    margin-left:var(--leftMargin);
+}
+
+/*"Contact" heading color and spacing, making text align with form but background color stretch accross the page*/
+h1{
+    margin-left:-70px;
+    margin-right:-8px;
+    padding: 15px 0px 10px var(--leftMargin); /*Distinction between padding and margin learned from W3 schools*/
+    color:var(--darkerBlue);
+    background-color:rgb(28, 28, 28);
+    height:50px;
+}
+
+/*Makes text between heading and form blue*/
+#instructions{color:var(--accentBlue);}
+
+/*makes error red*/
+.error{
+    color:rgb(255, 90, 90);
+    /*font-weight:bold;*/
+}
+
+/*makes thank you for sumbitting not quite so tiny*/
+#thanks{ 
+    margin-top:30px;
+    font-size: large;
+}
+
+/*Form settings - sets the width to use float:right for sumbit position*/
+form{
+    width:590px;
+}
+
+/*Customizes class ".formInput" - which contains all form elements*/
+.formInput{
+    margin-top:15px;
+    background-color:rgb(190, 197, 202);
+    border-radius:3px; /*border-radius learned from W3 Schools*/
+    outline:none; /*From W3 schools - allows customization of select/focus outline color*/
+}
+
+/*hover effect for all form elements*/
+.formInput:hover{background-color:rgb(205, 221, 227);} /*in-class examples*/
+
+/*modifies click effect for all elements*/
+.formInput:focus{border:2px solid var(--accentBlue);} /*learned focus and border syntax from W3 Schools*/
+
+/*sets up spacing with labels*/
+label{
+    display:inline-block;
+    width:110px;
+}  /* Aligned text boxes based on this answer: https://stackoverflow.com/questions/10868640/align-html-input-fields-by */
+
+/*modifies spacing for checkbox label*/
+label[for="smsAckn"]{width:500px;}
+
+/*modifies spacing for short textbox label*/
+label[for="lastName"]{width:80px;}
+
+/*spacing for textarea because label is above, not next to like the others*/
+label[for="message"]{margin-top:15px;}
+
+/*sets up spacing for textboxes*/
+input[type="text"] {
+    width:var(--textLongWidth);
+    margin-right:10px;
+    resize:vertical;  /*W3 schools*/
+}
+
+/*modifies width for short textboxes, identified by their class*/
+input[type="text"].shortText{width:var(--textShortWidth);}
+
+/*modifies color and spacing for submit*/
+input[type="submit"]{
+    float:right;
+    margin-right:20px;
+    background-color:var(--darkerBlue);
+}
+
+input[type="submit"]:hover{background-color:var(--accentBlue);}
+
+/*Sets width for text area*/
+textarea{
+    width:563px;
+    resize:vertical;
+}
+
+/*modifies spacing to bring radio buttons closwer to paragraph above*/
+input[type="radio"]{margin-top:0px;}
