@@ -1,0 +1,399 @@
+:root {
+
+    /*Colors
+    --aColor: #fffdfe;
+    --bColor: #dcc7b4;
+    --cColor: #d19a64;
+    --dColor: #d3b599;
+    --eColor: #8db2c2;
+    --fColor: #1f4d60;
+    --fcolorHover: #2e7695;
+    --gColor: #7e5023;
+    --hColor: #000000;
+*/
+    --aColor: #EAE7DC;
+    --bColor: #708573;
+    --cColor: #B7BDAC;
+    --dColor: #116466;
+    --eColor: #ECDCC2;
+    
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+    /*Dimensions*/
+    --leftMargin: 360px;
+    --titleMargin: -360px;
+    --height: 35px;
+    --borderRadius: 2px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: #EAE7DC;
+    color: var(--hColor);
+    font-family: var(--aFont);
+    font-size: 20px;
+    height: 100%;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* related clubs title
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+h4{ /*Text color for Faculty*/
+    color: rgb(11, 11, 13);
+    font-family: 'Courgette', cursive;
+    margin: 50px;
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    /*
+    background-color: #9e5863;
+    border-radius: 10px;
+    padding: 1px 1px;
+    line-height: 10px;
+    */
+}
+
+h3{ /*Text color for Faculty*/
+    color: rgb(11, 11, 13);
+    font-family: 'Courgette', cursive;
+    margin: 50px;
+    display: flex;
+    font-size: 50px;
+    justify-content: center;
+    /*
+    background-color: #9e5863;
+    border-radius: 10px;
+    padding: 1px 1px;
+    line-height: 10px;
+    */
+}
+h1{ /*Text color for Faculty*/
+    margin: 50px;
+    color: rgb(11, 11, 13);
+    font-size: 30px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* ELEMENTS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+h1{
+     color: var(--hColor);
+    font-size: var(--logoSize);
+    line-height: 80px;/*make variable*/
+    /*
+    padding: 0 100px;
+    float: right;
+    margin-right: 20px;
+    background-color: var(--dColor);
+    height: 80px;
+    width: 100%;
+}
+*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* body
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+/*---------------------*/
+.cardimg
+{
+    background-color: antiquewhite;
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+
+}
+
+
+.card h2
+{
+padding: 7px;
+}
+
+.card p
+{
+    padding: 10px;
+
+}
+
+.container .card .content h2
+{
+    font-size: x-large;
+}
+.card a
+{
+    background-color:#1f4d60;
+    color: #000000;
+    color: aliceblue;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.card:hover {
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+    
+
+}
+
+.container
+{
+    display: flex;
+    justify-content: center;
+}
+.card
+{
+    background-color: #708573;
+    width: 500px;
+    margin: 15px;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+
+}
+.container .card .content
+{
+   position: relative;
+   height: 215px;
+   overflow: hidden;
+}
+
+.container .card.active .content
+{
+  height: auto;
+
+}
+
+ .container .card.active .content::before
+ {
+    display: none;
+
+ }
+
+ .container .card .more
+ {
+  position: relative;
+  padding: 10px 15px;
+  background:#1f4d60;
+  margin-top: 15px;
+  display: inline-block;
+  color: #fffdfe;
+  letter-spacing: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+ }
+
+ .container .card.active .more
+ {
+ background: #e88989;
+ color: #000000;
+ }
+ 
+.container .card .more::before
+{
+    content:'read more';
+
+}
+
+.container .card.active .more::before
+{
+    content:'read less';
+
+}
+
+
+/* for event section*/
+.container1{
+    display: flex;
+    justify-content: center;
+}
+
+.card
+{
+    background-color: #708573;
+    width: 270px;
+    margin: 80px;
+    border-radius: 10px;
+    color:white;
+}
+
+.cardimg
+{
+    background-color: antiquewhite;
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+
+}
+.card1
+{
+    background-image: url('imge1.jpeg');
+}
+.card2
+{
+    background-image: url('img22.png');
+}
+
+.card3
+{
+    background-image: url('img5.jpeg');
+}
+
+.card0
+{
+    background-image: url('img8.jpeg');
+}
+
+.card01
+{
+    background-image: url('img9.jpeg');
+}
+
+
+.card h2
+{
+padding: 10px;
+}
+
+.card p
+{
+    padding: 10px;
+}
+
+.card a
+{
+    background-color:#1f4d60;
+    color: #000000;
+    color: aliceblue;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.card:hover {
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+   
+
+}
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: var(--cColor);
+    height: 75px;
+    width: 101%;
+    margin-left: -8px;  
+}
+
+nav a.logo{
+    color: black;
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-top: 0px;
+    margin-left: 50px;
+    line-height: 75px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;   
+    margin-top: 0px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+    margin-top: 0px;
+}
+nav ul li a{
+    color: black;
+    font-size: var(--subtitleSize);
+    font-family: var(--aFont);
+    padding: 25px 13px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+
+nav a:hover{
+    background: var(--dColor);
+    transition: .05s;
+    color: #fffdfe;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* use this once all links are connected. This will allow the active nav to be highlighted (replacing the title "campus involvement")
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+nav a:hover,
+nav a:active
+{
+    background: var(--dColor);
+    transition: .05s;
+} */

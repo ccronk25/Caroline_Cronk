@@ -1,0 +1,268 @@
+:root { 
+
+    --white: #ffffff;
+    --paleGreen: #EAE7DC;
+    --lightSage: #B7BDAC;
+    --sageGreen: #708573;
+    --darkSage: #36573b;
+    --tan: #ECDCC2;
+    --teal: #116466;
+    --lightTeal: #1a9294;
+    --paleTeal: #9ec6c7;
+    --navyBlue: #000058;
+/*
+    --acolor: #fffdfe;
+    --bcolor: #e3cebb;
+    --ccolor: #d19a64;
+    --dcolor: #d3b599;
+    --ecolor: #8db2c2;
+    --fcolor: #1f4d60;
+    --fcolorHover: #2e7695;
+    --gcolor: #7e5023; 
+*/
+    --leftMargin: 360px;
+    --titleMargin: -360px;
+    --height: 35px;
+    --borderRadius: 2px;
+}
+
+body{
+    background-color: var(--white);
+    color: black;
+    margin-left: var(--leftMargin);
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+h1{
+    background-color: var(--darkSage);
+    color: var(--white);
+    font-family: Skolar Latin Regular, Georgia, serif; /*https://www.w3schools.com/css/css_font_websafe.asp*/
+    font-weight: bold; /*https://www.w3schools.com/css/css_font_style.asp*/
+    margin-left: var(--titleMargin);
+    margin-right:-8px;
+    padding: var(--height) 0px var(--height) var(--leftMargin); /*https://www.w3schools.com/css/css_padding.asp*/
+}
+
+h2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h3{
+    margin-bottom: 5px;
+}
+
+h3.userForms{
+    margin-top: 5px;
+}
+
+.error{
+    color: var(--darkSage);
+    font-weight: bold;
+}
+
+.section{
+    background-color: var(--tan);
+    width: 750px;
+    padding: 10px 10px 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#options{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 290px;
+    height: 100%; /*
+    border-style: solid;
+    border-width: 0px 4px 0px 0px;
+    border-color: var(--paleTeal);*/
+    background-color: var(--lightSage);
+    color: black;
+    padding-top: 25px;
+    padding-right: 4px;
+}
+
+#indent{
+    margin-left: 25px;
+}
+
+a{
+    color: black;
+    text-decoration: none; /*https://www.w3schools.com/css/css_link.asp*/
+}
+
+a:hover{
+    color: var(--white);
+}
+
+/* -- FORMS --*/
+
+input[type="textbox"]{
+    border-radius: var(--borderRadius);
+    width: 150px;
+}
+
+textarea, select, input{
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: small;
+    background-color: var(--paleGreen);
+}
+
+input[type="file"]{
+    background-color: var(--tan);
+}
+
+textarea, select{
+    border-radius: var(--borderRadius);
+    border-width: 2px;
+    border-style: inset;
+    width: 158px;
+    margin-top: 5px;
+}
+
+textarea{
+    width: 340px;
+    resize: vertical;
+}
+
+label{
+    display: inline-block;
+    width: 185px;
+    margin-top: 5px;
+}
+
+form{
+    display: inline-block; /*https://stackoverflow.com/questions/18587588/keep-two-html-forms-on-the-same-line-in-a-paragraph-tag*/
+}
+
+form.subheading{
+    width: 360px;
+}
+
+input[type="button"], input[type="submit"], input::file-selector-button{ /*https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button*/
+    background-color: var(--sageGreen);
+    color: var(--white);
+    border-color: var(--sageGreen);
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+label.subheading{
+    display: inline-block;
+    width: 145px;
+    margin-top: 5px;
+}
+
+input[type="textbox"].subheading{
+    width: 190px;
+}
+
+input[type="submit"].subheading{
+    float:right;
+    margin-right:20px;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, input::file-selector-button:hover{ /*https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button*/
+    background-color: var(--darkSage);
+    color: var(--white);
+    border-color: var(--darkSage);
+    margin-bottom: 5px;
+}
+
+/* -- TABLES --*/
+table, th, td{ /*all table styling: https://www.w3schools.com/css/css_table.asp*/
+    border: 1px solid;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th{
+    padding: 8px 20px;
+    background-color: var(--lightSage);
+}
+
+td{
+    padding: 5px 20px;
+}
+
+th#message{
+    padding-right: 250px;
+}
+
+th#link{
+    padding-right: 515px;
+}
+
+td.remove{
+    text-align: center;
+}
+
+td.imgtd{
+    padding: 0px;
+}
+
+tr:not(.imgtr):hover{ /*https://stackoverflow.com/questions/12120363/how-to-exclude-an-element-via-id-in-css*/
+    background-color: var(--tan);
+}
+
+.hidden{ /*https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp and class example sprites.html*/
+    display: none;
+    visibility: hidden;
+}
+
+/* -- IMAGES --*/
+
+.imgButton{ /*https://www.w3schools.com/cssref/pr_background-image.php*/
+    padding: 0px;
+    text-decoration: none;
+    border: none;
+    border-color: var(--white);
+
+    height: 150px;
+    width: 150px;
+    
+    background-image: url("../../img/placeholder.png");
+    background-color: var(--darkSage);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+div.imgButton{
+    float:right;
+    margin-right:80px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+section.imgButton{
+    border-radius: 0%;
+    display: inline-block;
+
+    margin: 20px, 10px, 0px;
+}
+
+.selected{
+    padding: 0px;
+    border: 4px solid;
+    border-color: var(--tan);
+}
+
+#selectedTR{
+    background-color: var(--lightSage);
+}
+
+#images{
+    border: none;
+}
+
+p.imgtag{
+    width: 300px;
+    display: inline-block;
+    margin: 0px;
+}

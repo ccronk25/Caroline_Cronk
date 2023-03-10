@@ -1,0 +1,368 @@
+:root {
+    /*Colors*/
+    --aColor: #EAE7DC;
+    --bColor: #708573;
+    --cColor: #B7BDAC;
+    --dColor: #116466;
+    --eColor: #ECDCC2;
+    --fColor: #ffffff;
+    --gColor: #000000;
+    --hColor: #000058;
+
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+    /*Dimensions*/
+    --leftMargin: 360px;
+    --titleMargin: -360px;
+    --height: 35px;
+    --borderRadius: 2px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--aColor);
+    color: var(--aColor); /*changes the color text for the card before transition*/
+    font-family: var(--aFont);
+    font-size: 20px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* ELEMENTS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+h1{
+    color: var(--hColor);
+    font-size: var(--logoSize);
+    line-height: 80px;/*make variable*/
+    /*
+    padding: 0 100px;
+    float: right;
+    margin-right: 50px;
+    height: 80px;
+    width: 100%;
+}
+
+'Courier New', Courier, monospace;
+
+#c0b097
+*/
+
+h1{ /*Text color for Faculty*/
+    color: #000000;
+    font-family: 'Courgette', cursive;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    /*
+    background-color: #9e5863;
+    border-radius: 20px;
+    padding: 7px 13px;
+    line-height: 40px;
+    */
+    
+
+
+}
+.pcolor{ /*Desciption of major */
+    color:#000000;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+.h2color{ /*major in global studies*/
+    color:#708573;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+.p2color{ /*Desciption of faculty*/
+    color:#000000;
+    display: flex;
+    justify-content: center;
+
+}
+.lcolor{ /* List of concentration */
+    color:#3d3d3c;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: var(--cColor);
+    height: 75px;
+    width: 101%;
+    margin-left: -8px;  
+}
+nav a.logo{
+    color: black;
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-top: 0px;
+    margin-left: 50px;
+    line-height: 75px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;   
+    margin-top: 0px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+    margin-top: 0px;
+}
+nav ul li a{
+    color: black;
+    font-size: var(--subtitleSize);
+    font-family: var(--aFont);
+    padding: 25px 13px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+
+nav a:hover{
+    background: var(--dColor);
+    transition: .05s;
+    color: #fffdfe;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* use this once all links are connected. This will allow the active nav to be highlighted (replacing the title "campus involvement")
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+nav a:hover,
+nav a:active
+{
+    background: var(--dColor);
+    transition: .05s;
+} */
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* BODY OF CARDS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*.container{
+    display: flex;
+    justify-content: center;
+    border-color: #c52525;
+}*/
+.container{
+    display: flex;
+    justify-content: center;
+}
+.card
+{
+    background-color: #708573;
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 10px; 
+    display: inline-block;
+    
+}
+
+/*
+.cardimg
+{
+    background-color: antiquewhite;
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+
+}
+*/
+
+.cardimg
+{
+    background-color: antiquewhite;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    justify-content: center;
+    margin: 50px;
+    background-position: -45px -30px;
+    
+
+
+} 
+/*
+.cardimg card1
+{
+    background-color: antiquewhite;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    justify-content: center;
+    margin: 50px;
+}
+*/
+
+.card1
+{
+    background-image: url('1.jpg');
+    
+}
+
+
+.card2
+{
+    background-image: url('3.jpg');
+    background-position: -45px -30px;
+}
+
+.card3
+{
+    background-image: url('2.jpg');
+    background-position: -45px -50px;
+}
+
+
+
+.card h2
+{
+    padding: 10px;
+}
+
+.card p
+{
+    padding: 10px;
+}
+
+.card a
+{
+    background-color:#1f4d60;
+    color: #ffffff;
+    color: aliceblue;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+   
+}
+
+.card:hover {
+    background-color:#ECDCC2;
+    color: #000000;
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 1s ease;
+
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* BODY OF CONCENTRATION
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+.container2{
+    margin: 100;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+.container
+.box{
+    width: 300px;
+}
+.box h2{
+    color: #fff;
+    background: #3f6e65;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.box ul{
+    position: relative;
+    background: #fff;
+
+}
+
+.box ul li{
+    list-style: none;
+    padding: 10px;
+    width: 100%;
+    background: #65978c;; /*color of background for box list*/
+    box-shadow: 0 5px 10px #000000;
+    transition: transform 0.5s;
+}
+
+.box ul li:hover{
+    transform: scale;
+    z-index: 100;
+    background: #116466;/*color of hover over concentration*/
+    box-shadow: 0 5px #000000;
+    color: #ffffff; /*color of after hover*/
+}
+.box ul li span{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #3f6e65;/*color of background numbers*/
+    color: #fff;/*color of numbers*/
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-2px);
+}
+.box ul li:hover span{
+    background: #fff;
+    color: #f706ab;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}

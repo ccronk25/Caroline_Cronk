@@ -1,0 +1,271 @@
+:root{
+    --navBackColor: #B7BDAC;
+    --navTextColor: #000058;
+    --navHovColor: #116466;
+    --circleColor: #8db2c2;
+    --footBackColor:#ECDCC2;
+    --footTextColor:#EAE7DC;
+    --footHovColor:#ffffff;
+    --contBoxColor:#708573;
+
+    --aColor: #EAE7DC;
+    --bColor: #708573;
+    --cColor: #B7BDAC;
+    --dColor: #116466;
+    --eColor: #ECDCC2;
+
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+
+    /*Dimensions*/
+    --leftMargin: 360px;
+    --titleMargin: -360px;
+    --height: 35px;
+    --borderRadius: 2px;
+
+}
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: var(--cColor);
+    height: 75px;
+    width: 101%;
+    margin-left: -8px;  
+}
+nav a.logo{
+    color: black;
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-top: 0px;
+    margin-left: 50px;
+    line-height: 75px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;   
+    margin-top: 0px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+    margin-top: 0px;
+}
+nav ul li a{
+    color: black;
+    font-size: var(--subtitleSize);
+    font-family: var(--aFont);
+    padding: 25px 13px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+
+nav a:hover{
+    background: var(--dColor);
+    transition: .05s;
+    color: #fffdfe;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* use this once all links are connected. This will allow the active nav to be highlighted (replacing the title "campus involvement")
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*
+nav a:hover,
+nav a:active
+{
+    background: var(--dColor);
+    transition: .05s;
+} */
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* HeroImage
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.hero-image{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero1.jpg");/*or hero 2*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30%;
+}
+.hero-text{
+    color: white;
+    text-align: center;
+    padding: 275px;
+    max-height: 500px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Blur
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.blur{
+    font-size: 20px;
+    text-align: justify;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: 20px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Student Quote 1
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.student-quote{
+    background-color: var(--circleColor);
+    height: 330px;
+    width: 100%;
+}
+.column {
+    padding-left: 50px;
+    float: left;
+    width: 40%, 60%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.circle {
+    border-style: solid;
+    border-color: var(--contBoxColor);
+    border-radius: 200px;
+    margin-left: 160px;
+    background-image: url(images/StudentHeadshotV4.jpg);
+}
+.quote{
+    color: black;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-top: 50px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Student Quote 2
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.student-quote2{
+    background-color: var(--contBoxColor);
+    height: 330px;
+    width: 100%;
+    margin-top: 15px;
+}
+.column2{
+    padding-right: 50px;
+    float: left;
+    width: 60%, 40%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.circle2{
+    border-style: solid;
+    border-color: var(--circleColor);
+    border-radius: 200px;
+    background-image: url(images/StudentHeadshot2.jpg);
+}
+.quote2{
+    color: black;
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-top: 50px;
+    margin-left: 160px;
+    text-align: right;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* Newsletter
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.newsletter-image{
+    margin-top: 50px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/warmnwslV7.jpg");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.newsletter-text {
+    color: white;
+    text-align: center;
+    padding-top: 170px;
+}
+.click {
+    border-color: white;
+    background: transparent;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 12px;
+  }
+  
+.click:hover {
+    border-color: gray;
+    background: white;
+    color: gray;
+    transition: .05s;
+  }
+
+  #newsletterFrame{
+    width: 100%;
+    height: 900px;
+  }
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}

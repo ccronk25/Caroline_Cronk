@@ -1,0 +1,198 @@
+:root {
+    /*Colors*/
+    --aColor: #EAE7DC;
+    --bColor: #708573;
+    --cColor: #B7BDAC;
+    --dColor: #116466;
+    --eColor: #ECDCC2;
+    --fColor: #ffffff;
+    --gColor: #000;
+
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+    /*Dimensions*/
+    --leftMargin: 360px;
+    --titleMargin: -360px;
+    --height: 35px;
+    --borderRadius: 2px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: var(--aColor);
+    color: var(--gColor); /*changes the color text for the card before transition*/
+    font-family: var(--aFont);
+    font-size: 20px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* ELEMENTS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+p, li, ul, h3{
+    margin-left: 50px;
+}
+
+h1{ /*Text color for Career*/
+    color: #000058;
+    font-family: 'Courgette', cursive;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    /*
+    background-color: #9e5863;
+    border-radius: 20px;
+    padding: 7px 13px;
+    line-height: 40px;
+    */
+    
+
+
+}
+.pcolor{
+    color:#000000;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+.h2color{
+    color:#708573;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+.p2color{
+    color:#000000;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+.lcolor{
+    color:#3d3d3c;
+}
+.p3color{
+    color:#000000;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+.h3color{
+    color:#000058;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* BODY OF PHOTO CAROUSEL 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#img-gal{
+    height: 360px;
+    padding:15px;
+    margin: 15px;
+}
+.box{
+    box-shadow: -1px 0 20px #000000;
+    background-color: #d0d3ca;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar - from home page
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: var(--cColor);
+    height: 75px;
+    width: 101%;
+    margin-left: -8px;  
+}
+
+nav a.logo{
+    color: black;
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    margin-top: 0px;
+    margin-left: 50px;
+    line-height: 75px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;   
+    margin-top: 0px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+    margin-top: 0px;
+}
+nav ul li a{
+    color: black;
+    font-size: var(--subtitleSize);
+    font-family: var(--aFont);
+    padding: 25px 13px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+
+nav a:hover{
+    background: var(--dColor);
+    transition: .05s;
+    color: #fffdfe;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}

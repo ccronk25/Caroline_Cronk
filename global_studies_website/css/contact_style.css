@@ -1,0 +1,235 @@
+:root {
+
+    --acolor: #fffdfe;
+    --bcolor: #e3cebb;
+    --ccolor: #d19a64;
+    --dcolor: #d3b599;
+    --ecolor: #8db2c2;
+    --fcolor: #1f4d60;
+    --fcolorHover: #2e7695;
+    --gcolor: #7e5023;
+    --hcolor: #dac8b6;
+
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+
+    --leftMargin: 140px;
+    --titleMargin: -140px;
+    --height: 35px;
+    --borderRadius: 2px;
+    --borderWidth: 4px;
+}
+
+body{
+    background-color: #eae7dc;
+    color: black;
+    margin-left: var(--leftMargin);
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar - from home page
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: #b7bdac;
+    height: 75px;
+    width: 101%;
+    margin-left: var(--titleMargin);
+    margin-right:-8px;
+    padding: 15px 0px 15px var(--leftMargin);
+    float:center;
+    
+}
+nav a.logo{
+    color: black;
+
+    margin-left: 20px;
+    margin-top: 0px;  
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    line-height: 40px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;  
+    line-height: 30px;
+    margin-top: 0px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: black;
+    font-size: 20px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+nav a:hover{
+    color: white;
+    background: #116466;
+    transition: .05s;
+}
+
+/*Contact form*/
+
+h1{
+    background-color: transparent;/*#b7bdac;*/
+    font-family: Skolar Latin Regular, Georgia, serif; /*https://www.w3schools.com/css/css_font_websafe.asp*/
+    font-weight: bold; /*https://www.w3schools.com/css/css_font_style.asp*/
+    font-size: 25px;
+    display: center;
+    margin-left: 15%;
+    padding: var(--height) 0px var(--height) var(--leftMargin); /*https://www.w3schools.com/css/css_padding.asp*/
+    float: center;
+}
+
+.section{
+    border-color: #050505; 
+    border-style: solid;
+    border-width: var(--borderWidth);
+    background-color: var(--hcolor);
+    color: black;
+    width: 750px;
+    padding: 10px 10px 20px 80px;
+    margin-top: 10px;
+    margin-left: var(--borderWidth);
+}
+
+p{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: black;
+}
+
+a{
+    color: var(--fcolor);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+a:hover{
+    color: var(--fcolorHover);
+}
+
+label{
+    display: inline-block;
+    width: 350px;
+    margin-top: 18px;
+}
+
+input, textarea{
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+    padding: 8px 6px;
+    width: 657px;
+    border-color: var(--fcolor);
+    border-style: solid;
+    border-width: 2px;
+    outline: none;
+}
+
+input:focus, textarea:focus{
+    border-color: var(--fcolorHover);
+    border-style: solid;
+    border-width: 2px;
+}
+
+textarea{
+    height: 130px;
+    resize: vertical;
+}
+
+input#firstName, input#lastName{
+    width: 300px;
+}
+
+input#lastName{
+    margin-left: 35px;
+}
+
+
+input[type="button"],input[type="submit"]{
+    width: 95px;
+    background-color: var(--fcolor);
+    color: var(--acolor);
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 6px;    
+}
+
+input[type="button"]:hover,input[type="submit"]:hover{
+    background-color: var(--fcolorHover);
+}
+/*
+.required::before {
+    content:" *";
+    color: rgb(239, 108, 104);
+  }
+*/
+  .reqfields{
+    content:" *";
+    color: rgb(239, 108, 104);
+  }
+
+.alert
+{
+    border-color: red;
+    border-width: 1px;
+}
+
+.error
+{
+    border-color: red;
+    border-width: 1px;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}

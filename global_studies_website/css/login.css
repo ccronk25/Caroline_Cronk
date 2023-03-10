@@ -1,0 +1,202 @@
+:root { 
+    --white: #ffffff;
+    --paleGreen: #EAE7DC;
+    --lightSage: #B7BDAC;
+    --sageGreen: #708573;
+    --darkSage: #36573b;
+    --tan: #ECDCC2;
+    --teal: #116466;
+    --navyBlue: #000058;
+
+    --leftMargin: 140px;
+    --titleMargin: -140px;
+    --height: 35px;
+    --borderRadius: 2px;
+    --borderWidth: 4px;
+
+    /*Fonts*/
+    --aFont: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --bFont: Verdana, Tahoma, sans-serif;
+    --cFont: Skolar Latin Regular, Georgia, serif;
+    --logoSize: 25px;
+    --titleSize: 40px;
+    --subtitleSize: 20px;/*also for buttoms*/
+    --textSize: 25px;
+}
+
+body{
+    background-color: var(--tan);
+    color: black;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+h1{
+    background-color: var(--teal);
+    color: var(--white);
+    font-family: Skolar Latin Regular, Georgia, serif; /*https://www.w3schools.com/css/css_font_websafe.asp*/
+    font-weight: bold; /*https://www.w3schools.com/css/css_font_style.asp*/
+    font-size: 34px;
+    margin-left: var(--titleMargin);
+    margin-right:-8px;
+    padding: var(--height) 0px var(--height) 280px; /*https://www.w3schools.com/css/css_padding.asp*/
+}
+
+.section{
+    border-color: var(--teal);
+    border-style: solid;
+    border-width: var(--borderWidth);
+    background-color: var(--lightSage);
+    color: black;
+    width: 360px;
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    padding: 10px 10px 20px 50px;
+    
+}
+
+p{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    color: var(--teal);
+}
+
+a{
+    color: var(--teal);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+a:hover{
+    color: var(--fcolorHover);
+}
+
+label{
+    display: inline-block;
+    width: 350px;
+    margin-top: 18px;
+}
+
+input{
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+    padding: 8px 6px;
+    width: 300px;
+    border-color: var(--teal);
+    border-style: solid;
+    border-width: 2px;
+    outline: none;
+}
+
+input:focus{
+    border-color: var(--sageGreen);
+    border-style: solid;
+    border-width: 2px;
+}
+
+input[type="button"],input[type="submit"]{
+    width: 95px;
+    background-color: var(--teal);
+    color: var(--white);
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 6px;   
+    border-radius: 20px; 
+}
+
+input[type="button"]:hover,input[type="submit"]:hover{
+    background-color: var(--sageGreen);
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* NavBar - from home page
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+nav{
+    background-color: #b7bdac;
+    height: 75px;
+    width: 101%;
+    margin-left: var(--titleMargin);
+    margin-right:-8px;
+    padding: 15px 0px 15px var(--leftMargin);
+    float:center;
+    
+}
+nav a.logo{
+    color: black;
+
+    margin-left: 20px;
+    margin-top: 0px;  
+
+    font-size: var(--logoSize);
+    font-family: var(--aFont);
+    font-weight: bold;
+    text-decoration: none;
+
+    line-height: 40px;
+    padding: 22px 13px;
+    border-radius: 3px;
+}
+nav ul{
+    list-style-type: none;
+    float: right;
+    margin-right: 20px;  
+    line-height: 30px;
+    margin-top: 0px;
+}
+nav ul li{
+    list-style-type: none; /*https://stackoverflow.com/questions/1027354/i-need-an-unordered-list-without-any-bullets*/
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: black;
+    font-size: 20px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-top: 0px;
+}
+nav a:hover{
+    color: white;
+    background: #116466;
+    transition: .05s;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* FOOTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+div.footer{
+    text-align: center;
+    background-color: #ecdcc2;
+    width: 100%;
+    height: 2.5rem;
+    box-shadow: 0 50vh 0 50vh #ecdcc2; /*https://stackoverflow.com/questions/9741701/how-can-i-extend-a-footer-to-bottom-of-page*/
+
+}
+
+div.footer ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 3px;
+    height: 2.5rem;
+}
+
+div.footer ul li a{
+    color: black;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: var(--aFont);
+}
+
+div.footer ul li:hover{
+    background-color: white;
+    transition: .05s;
+}
