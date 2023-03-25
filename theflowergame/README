@@ -2,4 +2,4 @@ The Flower Game
 
 This was my final project for the first computer science class I took at college. The course taught us object-oriented programming through basic Java. This project is
 a small scale recreation of John Conway's simulation "The Game of Life." The rules and logic of the game are explained on the JFrame. While the activation 
-method is clunky, I'm still proud of this considering it was my first big project.
+method is clunky, I'm still proud of this, considering it was my first big project.
