@@ -1,0 +1,6 @@
+Vending Machine
+
+This was an individual assignment for a computer science class that focused on data structures in object-oriented programming. We were provided with the 
+IVendingMachine<E> interface and a list of required functionality for the program. We were required to create and use the Candy and Soda classes for this project. 
+For one of the IVendable items in the miscellaneous vending machine, our professor instructed us to include the StarWarsCharacter class we had created for a 
+fight simulator earlier in the course.
