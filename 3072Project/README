@@ -1,0 +1,5 @@
+This was a group project from a computer science course. The game is "3072," a variant on the online game 2048 that uses 3 as the base number instead of 2. I wrote
+the code for the move, moveInt, and findAdjacent methods, and contributed to the combine and updateColor methods. I created the properties and constructors for the 
+Board class. I made the design for the home screen, then used the Java GUI form on Netbeans to implement the design. I also connected all of the JFrames (HomePage, 
+GamePages, and the instructions pop-up, the latter two created by my teammates) via the buttons so they would hide and show the same game screen rather than lose 
+progress by going back to the home screen.
