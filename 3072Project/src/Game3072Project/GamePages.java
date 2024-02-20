@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.io.File; 
@@ -15,9 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Scanner;
 import javax.swing.BorderFactory;
 import javax.swing.JTextArea;
@@ -70,14 +66,13 @@ public class GamePages extends javax.swing.JFrame {
         board = new Board(buttonArray);
         board.setGamePage(this);
         
-        //Makes the background the green color;
+        //makes the background green
         this.getContentPane().setBackground(BackgroundColor);
         
-       
-        
-        board.generateTwoTiles();
+        //the game begins with two tiles on the board
+        board.generateTile(2);
         ScoreAmount.setText("0");
-        getHighScore();
+        displayHighScore();
         
         
         this.setFocusable(true);      
@@ -117,7 +112,7 @@ public class GamePages extends javax.swing.JFrame {
             public void keyReleased(KeyEvent e) {
             }
 
-            });
+        });
         
         
         
@@ -568,19 +563,8 @@ public class GamePages extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NewGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewGameButtonActionPerformed
-        //ADD reset score
-        ScoreAmount.setText(Integer.toString(0));
-        board.setScore(0);
-        
-        board.setNumberArray(new int[4][4]); //wipes the array
-        board.generateTwoTiles(); //new tiles.
-        for(int ii=0;ii<4;ii++){
-            for(int jj = 0; jj<4; jj++){
-                board.updateColor(ii, jj);
-                
-                
-            }
-        }
+
+        newGame();
         this.setFocusable(true);
         this.requestFocus();
         
@@ -639,9 +623,7 @@ public class GamePages extends javax.swing.JFrame {
     }//GEN-LAST:event_Button9ActionPerformed
 
     private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
-        
-    //BestWinMethod();
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_Button1ActionPerformed
 
     private void Button12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button12ActionPerformed
@@ -701,25 +683,42 @@ public class GamePages extends javax.swing.JFrame {
         
     }//GEN-LAST:event_InstructionsButtonActionPerformed
 
+    public void newGame(){
+        //reset score
+        updateScore(0);
+        
+        //wipes the number array back to zeros
+        board.setNumberArray(new int[4][4]);
+        
+        //game starts with two numbers on the board
+        board.generateTile(2); 
+       
+        //set the button color for the two generated tiles
+        for(int ii=0;ii<4;ii++){
+            for(int jj = 0; jj<4; jj++){
+                board.updateColor(ii, jj);
+            }
+        }
+    }
+    
     public void updateScore(int score){
     ScoreAmount.setText("" + score);
+    
+    //open high score file and compare current score to high score
     String filepath="";
-
     try { 
         String currentDir = System.getProperty("user.dir");
         filepath = currentDir + "\\src\\Game3072Project\\HighScore.txt";
-    
 
         File file = new File(filepath);
-
         Scanner reader = new Scanner(file);
+        
+        //read the old high score from file
         while (reader.hasNextInt()) {
-            int highScore1 = reader.nextInt();
+            int highScore = reader.nextInt();
 
-            if(highScore1 < score){
-                //update file
-                BestAmount2.setText(""+ score);
-
+            //if the current score is higher, overwrite the old high score with it
+            if(highScore < score){
                 try{
                     FileWriter myWriter = new FileWriter(file.getPath());
                     PrintWriter pw = new PrintWriter(myWriter);
@@ -728,20 +727,20 @@ public class GamePages extends javax.swing.JFrame {
                     myWriter.close();
                 }
                 catch(IOException e){
-                    //System.out.println("An error occured");
                     e.printStackTrace();
                 }
+                
+                //display new high score on screen
+                BestAmount2.setText(""+ score);
             }
         }
         reader.close();
     } catch (FileNotFoundException e) {
-        //System.out.println("An error occurred.");
         e.printStackTrace();
     }
 }
     
-    public void getHighScore(){
-        
+    public void displayHighScore(){
         String filepath="";
         
         try { 
@@ -764,6 +763,7 @@ public class GamePages extends javax.swing.JFrame {
         
     }
     
+    //creates the graphic effect for losing the game
     public void gameOver(){
         Button5.setText("G");
         Button6.setText("A");
@@ -786,6 +786,7 @@ public class GamePages extends javax.swing.JFrame {
         this.setFocusable(false);
     }
     
+    //creates the graphic effect for winning the game
     public void win(){
         Button5.setText("Y");
         Button6.setText("O");
@@ -808,16 +809,6 @@ public class GamePages extends javax.swing.JFrame {
     }
     public void focus(){
         this.requestFocus();
-    }
-    
-    public void BestWinMethod(){
-        
-        while(board.countOpenSpots()!=0){
-        board.move(0);
-        board.move(1);
-        board.move(2);
-        board.move(3);
-        }
     }
 
     

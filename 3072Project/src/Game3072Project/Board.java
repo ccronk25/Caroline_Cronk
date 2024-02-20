@@ -1,7 +1,6 @@
 package Game3072Project;
 
 import javax.swing.JButton;
-import javax.xml.transform.OutputKeys;
 
 /**
  * A class that keeps track of the movement of the numbers on the board
@@ -10,7 +9,7 @@ public class Board {
 //---------------------------------------------
 //                 PROPERTIES    
 //---------------------------------------------
-    //the array of integers, the multiples of 3 for the gameboard
+    //the array of integers, which holds the multiples of 3 on the gameboard
     private int[][] numbers;
     public int[][] getNumberArray(){ return numbers; }
     public void setNumberArray(int[][] numberArray){ numbers = numberArray; }
@@ -60,7 +59,7 @@ public class Board {
         setButtonArray(buttonArray);
     }
     
-    //passes in the array of ints from main, makes an empyu array of JButtons
+    //passes in the array of ints from main, makes an empty array of JButtons
     public Board(int[][] numberArray){
         setNumberArray(numberArray);
         setButtonArray(new JButton[MAX_SIZE][MAX_SIZE]);      
@@ -75,14 +74,14 @@ public class Board {
 //---------------------------------------------
 //                  METHODS    
 //---------------------------------------------   
-    //moves the entire board, based on direction
+    //moves the entire board in specified direction
     public void move(int direction){
-        //for each of numbers: 
-            //I found that the for loop must work from the direction the sqaures are traveling 
-            //- e.g. DOWN uses bottom to top rather than top to bottom - otherwise they won't
-            //all move as far as they should
+        //the for loop must work from the direction the sqaures are traveling 
+        //- e.g. DOWN uses bottom to top rather than top to bottom - otherwise they will
+        //be blocked by squares that haven't moved yet.
         switch(direction){
-            case UP: //up goes top to bottom, left to right
+            //up goes top to bottom, left to right
+            case UP: 
                 for(int ii = 0; ii<MAX_SIZE; ii++){ 
                     for(int jj = 0; jj<MAX_SIZE; jj++){
                         if(ii!=MIN_SIZE){
@@ -91,16 +90,16 @@ public class Board {
                     }
                 }
                 break;
-                
-            case RIGHT: //right goes top to bottom, right to left
+            //right goes top to bottom, right to left 
+            case RIGHT: 
                 for(int ii = 0; ii<MAX_SIZE; ii++){
                     for(int jj = MAX_SIZE-1; jj>=MIN_SIZE; jj--){
                         moveInt(direction, ii, jj);
                     }
                 }
                 break;
-                
-            case DOWN: //down goes bottom to top, left to right
+            //down goes bottom to top, left to right   
+            case DOWN: 
                 for(int ii = MAX_SIZE-1; ii>=MIN_SIZE; ii--){
                     for(int jj = 0; jj<MAX_SIZE; jj++){
                         moveInt(direction, ii, jj);
@@ -119,45 +118,50 @@ public class Board {
             default:
                 break;
         }
-        generateOneTile();
+        //Game rules: a new tile is generated after each move.
+        generateTile(1);
     }    
                
     /**
      * Method to move an individual number. This method recursively calls itself until
-     * the current number (not index) hits an edge or another number square.
+     * the current number square hits an edge or another number square.
      * @param direction up, right, down, or left, represented by static variables
-     * @param ii current row index
-     * @param jj current col index
+     * @param startingRow current row index
+     * @param startingCol current col index
      */
-    public void moveInt(int direction, int ii, int jj){
+    public void moveInt(int direction, int startingRow, int startingCol){
         int[] moves = getMoves(direction);
         
-        int row = ii + moves[0];
-        int col = jj + moves[1];
+        int row = startingRow + moves[0];
+        int col = startingCol + moves[1];
         
         if(row >= MIN_SIZE && row < MAX_SIZE && col >= MIN_SIZE && col < MAX_SIZE){
             
-            int adj = findAdjacent(direction, ii, jj);
+            int adj = findAdjacent(direction, startingRow, startingCol);
 
-            if(adj == numbers[ii][jj] && adj != 0){ //if they're equal
-                combine(direction,adj,ii,jj);
+            if(adj == numbers[startingRow][startingCol] && adj != 0){ //if they're equal
+                combine(direction,adj,startingRow,startingCol);
             }
             else if(adj == 0){
-                adj = numbers[ii][jj];
-                numbers[ii][jj] = 0;
-                numbers[ii + moves[0]][jj + moves[1]] = adj;
-                moveInt(direction, ii + moves[0], jj + moves[1]);
+                adj = numbers[startingRow][startingCol];
+                numbers[startingRow][startingCol] = 0;
+                numbers[startingRow + moves[0]][startingCol + moves[1]] = adj;
+                moveInt(direction, startingRow + moves[0], startingCol + moves[1]);
             }
-            updateColor(ii,jj);
+            updateColor(startingRow,startingCol);
             updateColor(row,col);
         }    
     }
             
-    
+    /**
+     * Find a number that the number at the index is going to run into
+     * @return 0 if empty, 3-3072 if occupied, -1 if the edge of the board.
+     */
     public int findAdjacent(int direction, int index1, int index2){
-        int adjacent = -1; //switch to -1 to show it's out of bounds?
+        //set adjacent to out of bounds (-1)
+        int adjacent = -1; 
         
-        //figure out which of the moves to use
+        //figure out which direction to search for neighbor in
         int[] moves = getMoves(direction);
         
         //find the row and column indexes for new location
@@ -171,31 +175,38 @@ public class Board {
         return adjacent;
     }
     
+    /**
+     * Combines two equal number squares
+     * @param value the number in both squares
+     */
     public void combine(int direction, int value, int index1,int index2) 
     {
+        //combine the values
         int sum = 2*value;
         
-        //figure out which of the moves to use
+        //figure out final destination of combined square
         int[] moves = getMoves(direction);
         
         //find the row and column indexes for new location
         int row = index1 + moves[0];
         int col = index2 + moves[1];
         
+        //set new square value and old square to empty
         numbers[row][col] = sum;
-        numbers[index1][index2] = 0; //set previous square to empty
+        numbers[index1][index2] = 0;
         
-        score = score + sum; //add to score
+        //increase score
+        score = score + sum;
         gamePage.updateScore(score);
 
    } 
     
     /**
-     * Finds which of the _MOVES variables to use in movement calculations. This simplifies other methods.
+     * Finds which of the MOVES arrays to use in movement calculations.
      */
     public int[] getMoves(int direction){
         int[] moves = new int[2];
-        //figure out which of the moves to use
+
         switch (direction) {
             case UP:
                 moves = UP_MOVES;
@@ -215,19 +226,13 @@ public class Board {
         return moves;
     }
     
-    public void generateTwoTiles(){
-        
-                //two open spots
-        for(int i1 = 0; i1<2; i1++){
-            //keep looking for open spots
-            while(countOpenSpots()>0){
-                
-                //select random spots
-                int ii = (int)(Math.random()*4);
-                int jj = (int)(Math.random()*4);
-                
-                
-                //variable three or six
+    /**
+     * Creates new number squares in random empty spaces
+     * @param numberOfTiles How many squares to generate
+     */
+    public void generateTile(int numberOfTiles){  
+        for(int count = 0; count<numberOfTiles; count++){
+            //randomly choose one of valid starting tile numbers
                 double threeOrSix = Math.random();
                 if(threeOrSix>0.5){
                     threeOrSix = 3;
@@ -235,43 +240,20 @@ public class Board {
                 else{
                     threeOrSix = 6;
                 }
-                    //Enter three or six into an open spot
-                    if(numbers[ii][jj]==0){
-                        numbers[ii][jj]=(int)threeOrSix;
-                        updateColor(ii,jj);
-                        
-                        //This breaks the while loop.
-                        break;
-                    }
-            }
-        }
-    }
-    public void generateOneTile(){
-       
-        
-        //one open spot
-        for(int i1 = 0; i1<1; i1++){
-            //keep looking for open spots
+            
+//as long as there's space on the board, pick a random open spot
             if(countOpenSpots()>0){
                 
                 while(true){
-                //select random spots
-                int ii = (int)(Math.random()*4);
-                int jj = (int)(Math.random()*4);
-                
-                
-                //variable three or six
-                double threeOrSix = Math.random();
-                if(threeOrSix>0.5){
-                    threeOrSix = 3;
-                }
-                else{
-                    threeOrSix = 6;
-                }
-                    //Enter three or six into an open spot
-                    if(numbers[ii][jj]==0){
-                        numbers[ii][jj]=(int)threeOrSix;
-                        updateColor(ii,jj);
+                    //select random spots
+                    int row = (int)(Math.random()*4);
+                    int col = (int)(Math.random()*4);               
+
+                    if(numbers[row][col]==0){
+                        numbers[row][col]=(int)threeOrSix;
+                        updateColor(row,col);
+
+                        //exit the while loop once tile is generated
                         break;
                     }
                 }
@@ -281,14 +263,12 @@ public class Board {
             }
         }
     }
-    /*
-        This counts the open spots on the board.
-        It is used in both the generateTwoTiles and generateOneTile.
-    */
+    
+    //Counts the number of empty spaces on the board
     public int countOpenSpots(){
         int count = 0; 
         
-        //loops through the all array of arrays (numbers).
+        //checks each index of the array of numbers for empty spots (0)
         for(int ii = 0; ii<MAX_SIZE; ii++){
             for(int jj = 0; jj<MAX_SIZE; jj++){
                 if(numbers[ii][jj]==0){
@@ -297,8 +277,10 @@ public class Board {
             }
         }
         return count; 
-    }
+    } 
     
+    //changes the color of a button on the board, the darker the higher the value
+    //Contains the win condition
     public void updateColor(int ii, int jj){
         int value = numbers[ii][jj];
         JButton button = buttons[ii][jj];
@@ -339,14 +321,14 @@ public class Board {
             case 3072:
                 button.setBackground(GamePages.Color3072);
                 
-                //You Win!
+                //If a 3072 tile is generated, win
                 gamePage.win();
                 break;
-            default: //0 or otherwise
+            //0 or otherwise
+            default: 
                 button.setBackground(GamePages.normalBackground);
                 button.setText("");
-                break;
-            
+                break;  
         }
         
     }

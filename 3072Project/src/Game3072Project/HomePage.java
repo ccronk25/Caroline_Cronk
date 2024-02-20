@@ -5,8 +5,6 @@ import static Game3072Project.GamePages.Color1536;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
@@ -19,8 +17,8 @@ import javax.swing.JTextArea;
 
 public class HomePage extends javax.swing.JFrame {
 
-    //Each jframe class remembers the other active pages for efficiency and so 
-    //navigating between pages doesn't make you lose game progress.
+    //Each jframe class remembers the other active pages for efficiency and 
+    //so navigating between pages doesn't make you lose game progress.
     GamePages gamePage;
     public void setGamePage(GamePages game){gamePage = game;}
     public GamePages getHomePage(){return gamePage;}
@@ -157,23 +155,23 @@ public class HomePage extends javax.swing.JFrame {
      * Opens or shows a game page and hides this current page
      */
     private void newGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameButtonActionPerformed
-        //make sure there's only one instance of each
+        //only create new game page if there isn't one already
         if(gamePage==null){
              gamePage = new GamePages();
         }
         gamePage.setHomePage(this);
-        //set new JFrame to visible and hide this one
+        
+        //set game JFrame to visible and hide this one
         gamePage.setVisible(true);
         gamePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(false);
-        
-        
+   
         gamePage.requestFocus();
         
     }//GEN-LAST:event_newGameButtonActionPerformed
 
     /**
-     * Opens or shows an instructions page and hides this current page
+     * Displays an instructions page and hides home page 
      */
     private void instructionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instructionsButtonActionPerformed
         Color textColor = Color.black;
