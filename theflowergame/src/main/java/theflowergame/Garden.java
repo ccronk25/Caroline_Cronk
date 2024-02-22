@@ -19,57 +19,50 @@ public class Garden {
 
     Random randomNumberGenerator = new Random();
     
-    public Garden(GameRunner myGame)
-    {
+    public Garden(GameRunner myGame){
         game = myGame;
     }   
     
     /**
      * Creates and fills a 2D array of flowers within the GUI JPanel.
      */
-    public void createGarden()
-    {
-        panel = game.getPanel(); //recieves the panel created in the GUI customizer
-        flowers = new Flower[ROWS][COLUMNS]; //creates array of flowers according to constants at top
+    public void createGarden(){
+        //recieves the panel created in the GUI customizer
+        panel = game.getPanel(); 
+        flowers = new Flower[ROWS][COLUMNS];
         
-        for(int ii = 0; ii < ROWS; ii++)
-        {
-            for(int jj = 0; jj < COLUMNS; jj++)
-            {
-                flowers[ii][jj] = new Flower(ii,jj,this,false); //flowers are added to "this" garden and start dead
+        for(int ii = 0; ii < ROWS; ii++){
+            for(int jj = 0; jj < COLUMNS; jj++){
+                flowers[ii][jj] = new Flower(ii,jj,this,Flower.DEAD);
                 panel.add(flowers[ii][jj].getButton());
             }
-        }
-        
+        }   
     }
     
     /**
      * Goes through the array of flowers and randomly picks some to be alive.
      * Used by the Random Fill button.
      */
-    public void randomizeFlowers()
-    {
-        double threshold = 0.7; //comparison for number generator
-        for(int ii = 0; ii < ROWS; ii++)
-        {
-            for(int jj = 0; jj < COLUMNS; jj++)
-            {
+    public void randomizeFlowers(){
+        //set up comparison for number generator
+        double threshold = 0.7; 
+        
+        //loop through all flowers and set 30% to alive
+        for(int ii = 0; ii < ROWS; ii++){
+            for(int jj = 0; jj < COLUMNS; jj++){
                 double random = randomNumberGenerator.nextDouble();
-                if (random > threshold)
-                {
-                    flowers[ii][jj].setStatus(true);
+                if (random > threshold){
+                    flowers[ii][jj].setStatus(Flower.ALIVE);
                 }
-                else
-                {
-                    flowers[ii][jj].setStatus(false);
+                else{
+                    flowers[ii][jj].setStatus(Flower.DEAD);
                 }
             }
         }    
     }
     
     //accessor
-    public Flower[][] getFlowerGrid()
-    {
+    public Flower[][] getFlowerGrid(){
         return flowers;
     }
     

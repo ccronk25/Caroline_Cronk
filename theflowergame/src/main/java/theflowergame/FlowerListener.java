@@ -10,8 +10,7 @@ import java.awt.event.ActionListener;
 public class FlowerListener implements ActionListener {
     private Flower myFlower;
     
-    FlowerListener(Flower flower)
-    {
+    FlowerListener(Flower flower){
         myFlower = flower;
     }
     
@@ -19,15 +18,12 @@ public class FlowerListener implements ActionListener {
      * When clicked, the flower toggles between alive (true) and dead (false).
      */
     @Override
-    public void actionPerformed(ActionEvent event)
-    {
-        if(!myFlower.isAlive())
-        {
-            myFlower.setStatus(true);
+    public void actionPerformed(ActionEvent event){
+        if(myFlower.isAlive() == Flower.DEAD){
+            myFlower.setStatus(Flower.ALIVE);
         }
-        else
-        {
-            myFlower.setStatus(false);
+        else {
+            myFlower.setStatus(Flower.DEAD);
         }
     }
 }

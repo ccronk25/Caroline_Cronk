@@ -30,8 +30,7 @@ public class GameRunner extends javax.swing.JFrame {
     /**
      * sets text, color, and action listeners for all GUI components
      */
-    public void initCustomizedComponents()
-    {
+    public void initCustomizedComponents(){
         //jPanel
         jPanel1.setBackground(BACKGROUND_COLOR);
         jPanel1.setLayout(new GridLayout(Garden.ROWS,Garden.COLUMNS)); //sets the default panel to a grid that can hold buttons
@@ -54,40 +53,38 @@ public class GameRunner extends javax.swing.JFrame {
         
         for(JLabel label : labels)
         {
-            label.setForeground(Flower.ALIVE);
+            label.setForeground(Flower.ALIVE_COLOR);
         }
        
         //jButton
         jButton1.setText("Random Fill");
-        jButton1.setBackground(Flower.ALIVE);
+        jButton1.setBackground(Flower.ALIVE_COLOR);
         jButton1.addActionListener(
-        new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                garden.randomizeFlowers();
+            new ActionListener(){
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    garden.randomizeFlowers();
+                }
             }
-        }
         );
     }
      
     /**
      * Runs one "generation" of the game.
+     * Since this is run in a loop, not actually simultaneously, every flower
+     * must check their neighbors before any actually change their status, otherwise
+     * the flower will mess up the count of their neighbor to the right.
      */ 
-    public void play()
-    {
-        for(int ii = 0; ii < Garden.ROWS; ii++)
-        {
-            for(int jj = 0; jj < Garden.COLUMNS; jj++)
-            {
+    public void play(){
+        //each flower checks their neighbors against the live/die rules
+        for(int ii = 0; ii < Garden.ROWS; ii++){
+            for(int jj = 0; jj < Garden.COLUMNS; jj++){
                 myFlowers[ii][jj].getNewStatus(); 
             }   
         }
-        for(int ii = 0; ii < Garden.ROWS; ii++)
-        {
-            for(int jj = 0; jj < Garden.COLUMNS; jj++)
-            {
+        //then each flower toggles alive or dead
+        for(int ii = 0; ii < Garden.ROWS; ii++){
+            for(int jj = 0; jj < Garden.COLUMNS; jj++){
                 myFlowers[ii][jj].updateStatus();
             }
         }     
@@ -95,23 +92,18 @@ public class GameRunner extends javax.swing.JFrame {
      
     /**
      * Adds delay for pattern observation
-     * @param pauseTime time in milliseconds? I think?
      */
-    public static void pause (int pauseTime)
-    {
-        try
-            {
-                Thread.sleep(pauseTime);
-            }
-            catch(InterruptedException ex)
-            {
+    public static void pause (int pauseTime){
+        try{
+            Thread.sleep(pauseTime);
+        }
+        catch(InterruptedException ex){
                Thread.currentThread().interrupt();
-            }
+        }
     }
     
     //accessor
-    public JPanel getPanel()
-    {
+    public JPanel getPanel(){
         return jPanel1;
     } 
     
@@ -231,27 +223,27 @@ public class GameRunner extends javax.swing.JFrame {
         game.setVisible(true);       
         Scanner in = new Scanner(System.in);
         
-        System.out.println("Enter an integer pause time: (Suggested:70-120)"); //based on my trials, too fast and you can't see it, too slow and the oscilators look weird
+        System.out.println("Enter an integer pause time: (Suggested:70-120)");
         int pauseTime = in.nextInt();
         
-        System.out.println("Enter an integer total number of generations: (Suggested: 600+)"); //it can run for a LONG time before stabilizing.
+        System.out.println("Enter an integer total number of generations: (Suggested: 600+)");
         int totalTime = in.nextInt();
-       
+        
+        
         System.out.println("Set desired start pattern, then type \"START\" to run the simulation");
         String input = "";
-        while(!input.equals("START")) //a bit of input validation
-        {
+        while(!input.equals("START")) {
             input = in.next();
-        }        
-        for(int timer = 0; timer < 2000000; timer++)
-        {
-            //giving the viewer a bit more time to get back to the screen
         }
-        for(int time = 0; time < totalTime; time++) //runs the game for the inputted amount of generations
-            {
-                game.play();
-                pause(pauseTime);
-            }    
+        
+        //delay start to giving the viewer a bit more time to get back to the screen        
+        for(int timer = 0; timer < 2000000; timer++){}
+        
+        //run the game for the inputted amount of generations
+        for(int time = 0; time < totalTime; time++){
+            game.play();
+            pause(pauseTime);
+        }    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
