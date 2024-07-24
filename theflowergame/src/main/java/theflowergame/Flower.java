@@ -139,7 +139,7 @@ public class Flower {
      * sets the color of the flower's button according to whether it's alive.
      */
     public void setColor(boolean status){
-        if(status = ALIVE){
+        if(status == ALIVE){
             button.setBackground(ALIVE_COLOR);
         }
         else {
