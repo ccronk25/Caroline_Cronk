@@ -1,0 +1,36 @@
+﻿@using System.Web;
+
+@{
+	//https://stackoverflow.com/questions/51281815/how-can-i-convert-viewdata-to-string-in-net-core
+
+	string action;
+	string searchTerm;
+	string pageName = ViewData["Title"] as string;
+
+	//if the session variable doesn't work on post, pull from the query string
+	if (string.IsNullOrEmpty(Context.Session.GetString("searchTerm")))
+	{
+		searchTerm = Context.Request.Query["search"];
+	}
+	else
+	{
+		searchTerm = Context.Session.GetString("searchTerm");
+	}
+
+	if (pageName == "My Collections" || pageName == "Collection Search")
+	{
+		action = "/CollectionSearch";
+	}
+	else
+	{
+		action = "/CostumeSearch?search=" + searchTerm;
+	}
+
+}
+
+<div id="searchbar" class="search-container">
+	<form id="costumeSearch" action="@action" method="get">
+		<input class="section search" type="text" id="searchString" name="search" placeholder="search" value="@searchTerm" />
+		<button class="section search-submit" type="submit"><img src="~/img/Search_icon.png" height="20"></button>
+	</form>
+</div>

@@ -1,0 +1,13 @@
+﻿@{
+	//https://stackoverflow.com/questions/17653736/redirecting-from-cshtml-page
+	//https://stackoverflow.com/questions/14516241/getting-error-while-redirecting-response-is-not-available-in-this-context
+
+	//this wasn't firing before the OnGet methods, so I added extra precautions to them. This is just in charge of redirecting to the home page.
+	
+	if (!User.Identity.IsAuthenticated)
+	{
+		Context.Response.Redirect("./Index");
+	} 
+
+}
+

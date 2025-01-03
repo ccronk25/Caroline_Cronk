@@ -1,0 +1,59 @@
+﻿@page
+@model CostumeArchive.Pages.CreateAccountModel
+@{
+    //https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-cs
+    //https://learn.microsoft.com/en-us/dotnet/api/system.web.ui.webcontrols.requiredfieldvalidator?view=netframework-4.8.1
+    //https://weblogs.asp.net/scottgu/asp-net-mvc-2-model-validation
+    //https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-8.0
+
+    ViewData["Title"] = "Create Account";
+    Layout = null;
+
+    //https://learn.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
+
+
+}
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - CostumeArchive</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/CostumeArchive.styles.css" asp-append-version="true" />
+    </head>
+
+    <body>
+        <div class="text-center section" id="createAccount">
+            <h4>Create Account</h4>
+
+            <form id="createAccount" method="post">
+
+                <label asp-for="username">Username</label>
+                <span asp-validation-for="username"></span><br />
+                <input asp-for="username" class="account-input"/><br/>
+                
+                <label asp-for="password">Password</label>
+                <span asp-validation-for="password"></span><br />
+                <input asp-for="password" class="account-input" type="password"/><br />
+          
+                <label asp-for="confirmPassword">Confirm Password</label>
+                <span asp-validation-for="confirmPassword"></span><br />
+                <input asp-for="confirmPassword" class="account-input" type="password"/><br />
+
+
+                <label asp-for="privacy">Privacy</label><br/>
+                <select class="account-input" asp-for="privacy">
+                    <option value="searchable">Searchable</option>
+                    <option value="unlisted">Unlisted</option>
+                </select>
+
+                <p class="privacy-notice">Privacy settings can be changed from the account page.</p>
+
+                <input class="account-input" type="submit" id="submit" value="Create account" />
+            </form>
+
+        </div>
+    </body>
+</html>

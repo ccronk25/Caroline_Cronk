@@ -1,0 +1,48 @@
+﻿@page
+@model CostumeArchive.Pages.MyCollectionsModel
+@using Microsoft.AspNetCore.Html;
+@{
+	ViewData["Title"] = "My Collections";
+}
+
+	<html>	
+	<body>
+		<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+		<partial name="~/Pages/Shared/_Search.cshtml" />
+
+		<div id="myCollections" class="section">
+
+			<h4>My Collections</h4>
+
+			@{
+				@foreach (var collection in Model.userCollections)
+				{
+					@await Html.PartialAsync("~/Pages/Partials/_Collection.cshtml", collection);
+				}
+
+				//https://stackoverflow.com/questions/54436338/pass-variable-from-view-to-partial-view-with-html-partial-asp-net-mvc
+				//https://www.red-gate.com/simple-talk/development/dotnet-development/tips-and-tricks-about-razor-partial-views/
+			
+			}
+	
+			<form class="sub-section" action="/CreateCollection">
+				<input type="submit" value="Add new +" />
+			</form>
+		</div>
+
+		<div id="sharedCollections" class="section">
+
+			<h4>Shared Collections</h4>
+
+			@{
+				@foreach (var collection in Model.sharedCollections)
+				{
+					@await Html.PartialAsync("~/Pages/Partials/_Collection.cshtml", collection);
+				}
+			}
+			<form class="sub-section" action="/CollectionSearch">
+					<input type="submit" value="Add +" />
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@page
+@using CostumeArchive.Classes
+@model CostumeArchive.Pages.CostumeDetailsModel
+@{
+	ViewData["Title"] = "Costume Details - Title of Costume";
+	Costume costume = @Model.currentCostume;
+	string backurl = "/CostumeSearch?search=" + Model.searchTerm;
+	
+
+	//potential fix? https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/anchor-tag-helper?view=aspnetcore-8.0
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+	<partial name="~/Pages/Shared/_Search.cshtml" />
+	<div id="details" class="section">
+
+		<div class="float-left">
+			<form id="back" action="@backurl" method="get">
+				<input type="hidden" name="search" value="@Model.searchTerm"/>
+				<input type="submit" value="< Back" />
+			</form>
+			@if(Model.canEdit){
+				<a class="edit costume-edit" href="/AddCostume">edit</a> 
+			}<br />
+			
+			@if (Model.canDelete)
+			{ //https://www.geeksforgeeks.org/how-to-create-popup-box-using-html-and-css/
+				<a class="edit costume-edit" href="#popup-box">delete</a>
+				<div id="popup-box" class="modal">
+					<div class="content">
+						<p>Delete costume?</p>
+						<form method="post" asp-page-handler="Delete" class="d-inline-block">
+							<input type="hidden" asp-for="searchTerm" value="@Model.searchTerm" />
+							<input type="hidden" asp-for="costumeID" value="@Model.currentCostume.id" />
+							<input type="hidden" asp-for="collectionID" value="@Model.currentCostume.collectionID" />
+							<input type="submit" value="Confirm"/>
+						</form>
+						<a href="#" class="form-submit">Cancel</a>
+					</div>
+				</div>
+				
+				
+			}
+			<br />
+		</div>
+	
+		<div class ="tab">
+			@if(!string.IsNullOrEmpty(costume.imgName)){
+				string imgsrc = Costume.imgPath + costume.imgName;
+
+				//https://stackoverflow.com/questions/47473715/img-src-is-not-working-for-static-image-in-mvc-view
+				<img src="@Url.Content(@imgsrc)" class="image detail-image" />
+			}
+			
+
+			<h4>@costume.title</h4>
+			<p>Collection Name</p>
+			<p>Location: @costume.location</p>
+			<p>Category: @costume.category</p>
+				
+			<div class="sub-section detail-list">
+				<h6>Measurements:</h6>
+				<ul>
+					@{
+						@foreach (KeyValuePair<string, string> measurement in costume.measurements)
+						{
+							<li>@measurement.Key: @measurement.Value</li>
+						}
+					}
+				</ul>
+			</div>
+			<div class="sub-section detail-list">
+				<h6>Notes:</h6> 
+				<ul>
+					<li>@costume.notes</li>
+				</ul>
+				<h6>Tags:</h6>
+				<ul>
+					<li>Colors: 
+						@{
+							@for (int i = 0; i < costume.colors.Count; i++)
+							{
+								//comma if not the end
+								if (i < costume.colors.Count - 2)
+								{
+									<span>@costume.colors[i], </span>
+								}
+								else
+								{
+									<span>@costume.colors[i]</span>
+								}
+							}
+						}
+					</li>
+					<li>Era: eras</li>
+					<li>Other: custom tags</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

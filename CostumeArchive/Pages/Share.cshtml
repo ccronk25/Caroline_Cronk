@@ -1,0 +1,40 @@
+﻿@page
+@model CostumeArchive.Pages.ShareModel
+@{
+	ViewData["Title"] = "Share Collection";
+}
+
+<html>
+<body>
+    <partial name="~/Pages/Shared/_LoginSession.cshtml" />
+    <div class="section page-long">
+        <form id="back" action="/MyCollections">
+            <input class="float-left" type="submit" value="< Back" />
+        </form>
+
+        <h4 class="tab">Share Collection</h4>
+
+        <form class="tab" id="shareCollection" method="post">
+            <label asp-for="shareUsername">Username</label>
+            <span asp-validation-for="shareUsername"></span><br />
+            <div class="text-container">
+                <input type="text" asp-for="shareUsername" list="usersList" oninput="showList(this)" /><br /><br />
+                
+                <!-- https://www.geeksforgeeks.org/how-to-display-suggestions-for-input-field-in-html/ -->
+                <datalist id="usersList">
+                @{
+                    @foreach (var option in Model.searchableUsers)
+				    {
+                            <option>@option</option>
+				    }
+                }
+                </datalist>
+            </div>
+
+            <input type="hidden" asp-for="collectionID" value="@Model.collectionID"/>
+
+            <input class="large-submit share" type="submit" id="submit" value="Share" />
+        </form>
+    </div>
+</body>
+</html>

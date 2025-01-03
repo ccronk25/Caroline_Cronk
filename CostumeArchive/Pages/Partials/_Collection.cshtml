@@ -1,0 +1,95 @@
+﻿@using CostumeArchive.Classes
+@model Collection
+@{
+	string userID = ViewContext.HttpContext.Session.GetString("userID");
+	//https://stackoverflow.com/questions/32204548/passing-a-variable-to-partial-view
+	string redirect = "/CollectionHome?collection=" + Model.ID;
+}
+
+<div class="sub-section">
+
+	<p class="float-right">@Model.location</p>
+
+	<h5 class="float-left">
+		<a href=@redirect>@Model.name</a>
+	</h5>
+
+	@if(Model.ownerID == userID)
+	{
+		<p><a class="edit" href="/CreateCollection">edit</a></p>
+
+		<p>Users</p>
+
+		<form action="/Share">
+			<input type="hidden" name="collection" value="@Model.ID" />
+			<input class="float-right share" type="submit" value="Share" />
+		</form>
+
+		
+		<table id="users" class="users">
+		@if (Model.users.Count > 0)
+		{
+			@foreach(Dictionary<string,string> user in Model.users)
+			{
+				<tr>
+					<td>@user["name"]</td>
+
+					<form method="post">
+						<td class="permissions">Permissions:</td>
+						<td class="permissions">
+							
+							@if (user["canEdit"] == "True")
+							{
+								<input type="checkbox" id="canEdit" checked />
+							}
+							else
+							{
+								<input type="checkbox" id="canEdit"/>
+							}
+							<label for="canEdit">edit</label>
+						</td>
+
+						<td class="permissions">
+							@if (user["canAdd"] == "True")
+							{
+								<input type="checkbox" id="canAdd" checked />
+							}
+							else
+							{
+								<input type="checkbox" id="canAdd"/>
+							}
+							<label for="canAdd">add</label>
+						</td>
+
+						<td class="permissions">
+							@if (user["canDelete"] == "True")
+							{
+								<input type="checkbox" id="canDelete" checked />
+							}
+							else
+							{
+								<input type="checkbox" id="canDelete" />
+							}
+							<label for="canDelete">delete</label>
+						</td>
+						<td class="permissions">
+							<input class="permissions-save" type="submit" id="submit" value="Save" />
+						</td>
+					</form>
+
+					<td><button onclick="showPermissions()" class="toggle-permissions"> . . . </button></td>
+				</tr>
+			}
+		}
+		else
+		{
+				<tr><td>No other users.</td></tr>
+		}
+		</table>
+
+	}
+	else{
+		<br/>
+	}
+	
+</div>

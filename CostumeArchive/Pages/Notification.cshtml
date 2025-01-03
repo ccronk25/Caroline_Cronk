@@ -1,0 +1,51 @@
+﻿@page
+@model CostumeArchive.Pages.NotificationModel
+@{
+	string username = "Username Here";
+	ViewData["Title"] = "Notifications - " + @username;
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+	<div class="section">
+		<h4>Notifications</h4>
+		<ul>
+			@if (NotificationModel.notifications.Count > 0)
+			{
+				@foreach (var notif in NotificationModel.notifications)
+				{
+					<li class="sub-section">
+						@await Html.PartialAsync("~/Pages/Partials/_Notification.cshtml", notif)
+						@if(notif.answer == "pending"){
+							<form asp-page-handler="ButtonAccept" method="post" class="d-inline-block">
+								<input type="hidden" value="@notif.id" asp-for="id" />
+								<button class="form-submit" type="submit">Accept</button>
+							</form>
+							<form asp-page-handler="ButtonReject" method="post" class="d-inline-block">
+								<input type="hidden" value="@notif.id" asp-for="id" />
+								<button class="form-submit" type="submit">Reject</button>
+							</form><br/>
+							<span>@Model.errorMessage</span>
+						}
+						else if (notif.answer == "yes")
+						{
+							<span>Request accepted.</span>
+						}
+						else if (notif.answer == "no")
+						{
+							<span>Request declined.</span>
+						}
+
+
+					</li>
+				}
+			}
+			else
+			{
+				<li>No notifications found.</li>
+			}
+		</ul>
+	</div>
+</body>
+</html>

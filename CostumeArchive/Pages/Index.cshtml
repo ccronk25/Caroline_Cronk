@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = null; //https://stackoverflow.com/questions/6613626/razor-view-without-layout
+}
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CostumeArchive</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CostumeArchive.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+        <div class="text-center">
+            <img src="~/img/Alternate_logo.png" width="350" height="250" alt="Costume Archive: Digitizing your collection has never been easier.">
+        </div>
+        <div class="text-center login login-box">
+            <form id="login" method="post">
+                <input class="login" asp-for="username" placeholder="Username"/>
+                <span asp-validation-for="username"></span><br />
+                
+                <input class="login" type="password"  asp-for="password" placeholder="Password" />
+                <span asp-validation-for="password"></span><br />
+                <input class="login" type="submit" id="submit" name="submit" value="Log in" />
+            </form>
+            <a class="text-white" href="/CreateAccount">Create account</a>
+        </div>
+    </body>
+</html>

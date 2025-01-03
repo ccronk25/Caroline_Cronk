@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CostumeArchive</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CostumeArchive.styles.css" asp-append-version="true" />
+</head>
+<body>
+   
+    <header>
+        <nav class="navbar navbar-expand-sm bg-primary border-bottom shadow mb-3">
+            <div class="container">
+                <img class="navbar-brand" src="~/img/Logo.png" width="126" height="90" alt="Costume Archive">
+                <div class="justify-content-between">
+                    <ul class="navbar-nav">
+                       <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="nav-link dropbtn"><img src="~/img/Notification_icon.png" height="90"></button>
+                                <div id="notifMenu" class="dropdown-content">
+                                    @if(NotificationModel.notifications.Count > 0) {
+                                        @foreach (var notif in NotificationModel.notifications)
+                                        {
+                                            <a asp-area="" asp-page="/Notification">
+                                                @await Html.PartialAsync("~/Pages/Partials/_Notification.cshtml", notif)
+                                            </a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <a asp-area="" asp-page="/Notification">No new notifications</a>
+                                    }
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="nav-link dropbtn"><img src="~/img/User_icon.png" height="90"></button>
+                                <div id="userMenu" class="dropdown-content">
+                                    <a asp-area="" asp-page="/Account">Account</a>
+                                    <a asp-area="" asp-page="/MyCollections">My Collections</a>
+                                    <a asp-area="" asp-page="/Logout">Log out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

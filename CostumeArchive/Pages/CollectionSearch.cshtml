@@ -1,0 +1,85 @@
+﻿@page
+@using CostumeArchive.Classes;
+@model CostumeArchive.Pages.CollectionSearchModel
+@{
+	ViewData["Title"] = "Collection Search";
+
+	//https://stackoverflow.com/questions/43392179/the-name-request-does-not-exist-in-the-current-context
+	//https://learn.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+	<partial name="~/Pages/Shared/_Search.cshtml" />
+	<div class="section">
+		<form id="back" class="float-left" action="/MyCollections">
+			<input type="submit" value="< Back" />
+		</form>
+		<h4 class="tab2">Collection Search Results</h4>
+		<ul id="results" class="tab2">
+			@{
+				if (Model.collections.Count > 0)
+				{
+					foreach (Collection collection in Model.collections)
+					{
+						<li class="sub-section">
+							@if (collection.privacy == "public")
+							{
+								<p class="float-right"><img id="privacyIcon" src="~/img/Globe_icon.png" />Public</p>
+							}
+							else
+							{
+								<p class="float-right"><img id="privacyIcon" src="~/img/Lock_icon.png" />Private</p>
+							}
+
+							<h5 class="float-left">@collection.name</h5>
+							<p class="result-detail">@collection.location</p>
+
+							@if (Model.userCollections.Any(n => n.ID == collection.ID))
+							{
+								//if they already have access to it, just view
+								string redirect = "/CollectionHome?collection=" + collection.ID;
+								<form action="@redirect">
+									<input class="submit-wide" type="submit" value="View" />
+								</form>
+							}
+							else if (collection.privacy == "public")
+							{
+								<br/>
+								string redirect = "/CollectionHome?collection=" + collection.ID;
+								<form action="@redirect" class="d-inline-block">
+									<input class="submit-wide" type="submit" value="View" />
+								</form>
+								<form class="d-inline-block" asp-page-handler="AddCollection">
+									<input class="submit-wide" type="submit" value="Add to My Collections" />
+									<input type="hidden" asp-for="collectionID" value="@collection.ID"/>
+								</form>
+							}
+							else
+							{
+								if (Model.pendingCollections.Contains(collection.ID))
+								{
+									<ul><li>Request pending.</li></ul>
+								}
+								else
+								{
+									<form asp-page-handler="RequestAccess">
+										<input class="submit-wide" type="submit" value="Request access" />
+										<input type="hidden" asp-for="collectionID" value="@collection.ID" />
+									</form>
+								}
+							}
+						</li>
+					}
+				}
+				else
+				{
+					<li>No results found.</li>
+				}
+
+			}
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿@page
+@using CostumeArchive.Classes
+@model CostumeArchive.Pages.CostumeSearchModel
+@{
+	ViewData["Title"] = "Costume Search";
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+	<partial name="~/Pages/Shared/_Search.cshtml" />
+	<div id="filters" class="section page-long">
+		<form id="filters">
+			<h6>Filters</h6>
+			<div id="color">
+				<p>Color</p>
+				@{
+					//https://learn.microsoft.com/en-us/answers/questions/1161372/binding-a-checkbox-list-on-razor-page-net-core-6-0
+					//list all of the colors relevant to this search
+					var colors = ViewData["colors"] as SelectList;
+					if (colors != null && colors.ToList().Count > 0)
+					{
+						foreach (var item in colors.ToList())
+						{
+							//checked if was checked in last get
+							if (Request.Query["color"].Contains(@item.Value))
+							{
+								<input type="checkbox" name="color" value="@item.Value" checked/> @item.Text  <br />
+							}
+							else
+							{
+								<input type="checkbox" name="color" value="@item.Value" /> @item.Text  <br />
+							}
+						}
+					}
+				}
+
+				
+			</div><br/>
+			<div id="era">
+				<p>Era</p>
+				<label class="era-label" for="start">Start</label>
+				<input type="text" id="start" name="start" /><br />
+				<label class="era-label" for="end">End</label>
+				<input type="text" id="end" name="end" /><br />
+			</div>
+		@{
+			//<div id="tags">
+			//	<p>Tags</p>
+			//</div>
+		}
+			<input type="submit" id="submit" value="Apply" />
+		</form>
+	</div>
+
+	<div id="costumeResults" class="section page-long">
+		<form id="back" action="/CollectionHome">
+			<input class="float-left" type="submit" value="< Back" />
+		</form>
+		<h4 class="tab">Results - Collection Name</h4>  <!--FIX-->
+		<ul class="tab">
+			@{
+				if(Model.costumes.Count > 0)
+				{
+					foreach (Costume costume in Model.costumes)
+					{
+						string redirect = "/CostumeDetails?costume=" + @costume.id;
+						<li class="sub-section costume-result">
+							@if (!string.IsNullOrEmpty(costume.imgName))
+							{
+								string imgsrc = Costume.imgPath + costume.imgName;
+
+								//https://stackoverflow.com/questions/47473715/img-src-is-not-working-for-static-image-in-mvc-view
+								<img src="@Url.Content(@imgsrc)" class="image" />
+							}
+
+							<h5><a href="@redirect">@costume.title</a></h5>
+							<p>Location: @costume.location</p>
+
+							<p>Measurements:</p>
+							<ul id="measurementsSearch">
+								@for(int i = 0; i < 3 && i < costume.measurements.Count; i++)
+								{
+									<li>@costume.measurements.ElementAt(i).Key: @costume.measurements.ElementAt(i).Value</li>
+								}
+								<li><a href="@redirect">See more +</a></li>
+							</ul>
+							
+							<p>Notes: @costume.notes</p>
+						</li>
+					}
+				}
+				else
+				{
+					<li>No results found.</li>
+				}
+			}
+		</ul>
+	</div>
+</body>
+</html>

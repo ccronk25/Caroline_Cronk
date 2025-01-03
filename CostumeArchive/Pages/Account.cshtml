@@ -1,0 +1,54 @@
+﻿@page
+@model CostumeArchive.Pages.AccountModel
+@{
+	ViewData["Title"] = "Account - " + Model.username;
+
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+	<div class="section">
+		<h4>Account - @Model.username</h4>
+
+		<div class="sub-section">
+			<h5>My Collections</h5>
+			<a href="/MyCollections">Go to my collections</a>
+		</div>
+		<div class="sub-section">
+			<h5>Privacy</h5>
+			<form id="changePrivacy" method="post" asp-page-handler="UpdatePrivacy">
+				<select id="privacy" asp-for="privacy">
+					<option value="searchable">Searchable</option>
+					<option value="unlisted">Unlisted</option>
+				</select>
+				<p>Searchable: Any user can add you to collections by searching for your username.</p>
+				<p>Unlisted: Only owners of collections you are in may see you.</p>
+
+				<button type="submit" class="form-submit">Update</button>
+			</form>
+		</div>
+		<div class="sub-section">
+			<h5>Change password</h5>
+			<form id="changePassword" method="post" asp-page-handler="UpdatePassword">
+				<label for="password">Current password</label> 
+				<span asp-validation-for="password"></span><br />
+				<input type="password" asp-for="password" /><br />
+
+				<label for="newPassword">New password</label>
+				<span asp-validation-for="newPassword"></span><br />
+				<input type="password" asp-for="newPassword" /><br />
+
+				<label for="confirmPassword">Confirm new password</label>
+				<span asp-validation-for="confirmPassword"></span><br />
+				<input type="password" asp-for="confirmPassword" /><br />
+
+				<button type="submit" class="form-submit">Update</button>
+			</form>
+		</div>
+		<div class="sub-section">
+			<a href="/Logout"><h6>Log out</h6></a>
+		</div>
+	</div>
+</body>
+</html>

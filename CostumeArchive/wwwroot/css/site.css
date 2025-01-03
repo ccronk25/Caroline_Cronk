@@ -1,0 +1,373 @@
+:root {
+    --primary-button: #3c19a7;
+    --bs-primary: #4a47d2;
+    --hover: #6562e6;
+    --section-outline: #3b36bc;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.section {
+    background-color: var(--section-bg);
+    border: 3px solid var(--section-outline);
+    color: var(--primary-button);
+    border-radius: 15px;
+    margin: 10px 20px;
+    padding: 15px;
+}
+
+.sub-section {
+    border-top: 2px solid var(--section-outline);
+   /* border-bottom: 2px solid var(--section-outline);*/
+    margin: 10px 40px;
+    padding: 10px 0px;
+}
+
+.page-long {
+    min-height: 500px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* General forms */
+input[type=text], input[type=password], input[type=number], select, textarea {
+    border: 3px solid var(--section-outline);
+    border-radius: 15px;
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+input[type=submit], input::file-selector-button, .form-submit {
+    background-color: var(--primary-button);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 2px 0px;
+    align-items: center;
+    min-width: 100px;
+    margin: 16px 8px;
+}
+
+input[type=submit]:hover, input::file-selector-button:hover, .form-submit:hover {
+    background-color: var(--bs-primary);
+}
+
+/* https://stackoverflow.com/questions/2906582/how-do-i-create-an-html-button-that-acts-like-a-link */
+a.form-submit {
+    padding: 2px 10px;
+}
+
+a.form-submit:hover{
+    color:white;
+}
+
+input[type=submit].large-submit {
+    padding: 10px;
+    margin: 10px 0;
+    min-width: 300px;
+}
+
+
+input[type=submit].submit-wide {
+    padding: 3px 16px !important;
+    margin-left: 21px;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--primary-button);
+    vertical-align: -2px;
+}
+
+
+/* links */
+a {
+    text-decoration: none;
+    color: var(--primary-button);
+}
+ 
+a:hover {
+    color: var(--hover);
+}
+
+.edit {
+    margin-left: 10px; 
+    text-decoration: underline;
+}
+
+.costume-edit {
+    margin-left: 20px;
+}
+
+/* Search bar */
+.search {
+    padding: 2px 15px !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    min-width: 1110px;
+    height: 35px;
+    margin-right: 0;
+}
+
+.search-container {
+    width: 1400px;
+}
+
+.search-submit {
+    padding: 2px 15px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left: none;
+    position: absolute;
+    min-width: 145px;
+    margin-left: 0;
+    height: 35px;
+}
+
+/* Users table - My Collections */
+.users {
+    border: 2px solid var(--section-outline);
+    border-radius: 30px;
+    border-collapse: separate;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.users-collapsed {
+    border: none;
+    margin-bottom: 16px;
+}
+
+.permissions {
+    display: inline;
+}
+
+td {
+    padding: 4px 15px;
+}
+
+input[type=submit].permissions-save {
+    margin: 0;
+}
+
+.toggle-permissions {
+    border: none;
+    background-color: transparent;
+    color: var(--primary-button);
+    font-weight: 700;
+}
+
+/* Account creation form */
+#createAccount {
+    width: 500px;
+    margin: auto;
+    padding: 15px 35px;
+}
+
+#createAccount.section {
+    margin-top: 80px;
+}
+
+.privacy-notice {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.account-input {
+    border: 3px solid var(--section-outline);
+    border-radius: 15px;
+    min-width: 350px;
+    min-height: 45px;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+
+#submit.account-input {
+    margin-left: 0;
+}
+
+form {
+    text-align: left;
+}
+
+/* https://stackoverflow.com/questions/6033485/styling-asp-net-mvc-validation-errors */
+.field-validation-error {
+    font-size: 12px;
+    margin-top: 0;
+    color: darkred;
+    padding-left: 15px;
+}
+
+.field-validation-valid {
+    display: none !important;
+}
+
+
+/* Collection creation form */
+.tab {
+    padding-left: 200px;
+    padding-top: 20px;
+}
+
+/* Share form */
+p.share {
+    margin-bottom: 0;
+}
+
+input.share {
+    margin: 10px;
+}
+
+/* Add Costume Form */
+.measurement {
+    width: 160px !important;
+    margin-right: 10px;
+}
+
+#notes {
+    min-width: 600px;
+}
+
+/* Search results */
+ul, ol {
+    list-style: none;
+}
+
+.tab2 {
+    padding-left: 150px;
+    padding-top: 20px;
+}
+
+.result-detail {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+#privacyIcon {
+    height: 20px;
+    vertical-align: -4px;
+}
+
+#filters {
+    float: left;
+    width: 225px;
+}
+
+#costumeResults {
+    margin-left: 255px;
+}
+
+#start, #end {
+    border: 3px solid var(--section-outline);
+    border-radius: 15px;
+    width: 80px;
+    margin-bottom: 10px;
+    height: 25px;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.era-label {
+    max-width: 40px !important;
+    width: 40px !important;
+}
+
+/* Notification dropdown */
+
+.dropdown-content a h5 {
+    font-size: 1rem !important;
+    padding-bottom: 0;
+}
+
+.dropdown-content a p {
+    font-size: 1rem !important;
+    padding-bottom: 2px;
+    margin-bottom: 0;
+}
+
+/* Return to login */
+#returnToLogin {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+#logout.text-center {
+    margin-top: 50px;
+}
+
+/* Costume details */
+.detail-list {
+    margin-left: 0 !important;
+    max-width: 600px;
+}
+
+/* Costume search */
+costume-result {
+    max-width: 600px;
+}
+
+
+.image {
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    height: 200px;
+}
+
+.detail-image {
+    height: 400px;
+    margin-top: 10px;
+}
+
+table.category tr {
+    margin: auto;
+}
+
+/* Delete costume form */
+/* https://www.geeksforgeeks.org/how-to-create-popup-box-using-html-and-css/ */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba( 245, 245, 245, 0.5 );
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    position: relative;
+    background: white;
+    padding: 1em 2em;
+    border: 3px solid var(--section-outline);
+    border-radius: 10px;
+    color: var(--primary-button);
+}
+
+.modal:target {
+    display: flex;
+}

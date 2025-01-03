@@ -1,0 +1,95 @@
+﻿@page
+@model CostumeArchive.Pages.AddCostumeModel
+@{
+	ViewData["Title"] = "Add Costume";
+}
+
+<html>
+    <body>
+        <partial name="~/Pages/Shared/_LoginSession.cshtml" />
+        <div class="section page-long">
+            <form id="back" class="float-left" action="/CollectionHome">
+                <input type="submit" value="< Back" />
+            </form>
+            
+            <h4 class="tab">Add Costume</h4>
+            
+            <form id="createCostume" method="post" class="tab">
+               <div class="sub-section">
+                    <label asp-for="title">Costume title</label>
+                    <span asp-validation-for="title"></span><br />
+                    <input asp-for="title" type="text" /><br />
+
+                    <input asp-for="collectionID" type="hidden" value="@Model.collectionID" />
+    
+                    <label asp-for="sLocation">Storage location</label><br />
+                    <input asp-for="sLocation" type="text" /><br />
+
+                    <label asp-for="category">Category</label><br />
+                    <select asp-for="category">
+                        @foreach (var category in AddCostumeModel.categories)
+                        {
+                            <option value=@category>@category</option>
+                        }
+                    </select><br />
+
+                </div>
+
+                <div class="sub-section">
+                    <p>Measurements:</p>
+                    <label asp-for="chest" class="measurement"> Chest</label>
+                    <label asp-for="waist" class="measurement">Waist</label>
+                    <label asp-for="hip" class="measurement">Hip</label><br />
+                    <input type="text" asp-for="chest" class="measurement"/>
+                    <input type="text" asp-for="waist" class="measurement"/>  
+                    <input type="text" asp-for="hip" class="measurement"/><br />
+
+                    <label asp-for="acrossBack" class="measurement">Across back</label>
+                    <label asp-for="neckToWaist" class="measurement">Neck to waist</label>
+                    <label asp-for="waistToHem" class="measurement">Waist to hem</label>
+                    <label asp-for="shoulderToWrist" class="measurement">Shoulder to wrist</label><br />
+                    <input type="text" asp-for="acrossBack" class="measurement"/>
+                    <input type="text" asp-for="neckToWaist" class="measurement"/>
+                    <input type="text" asp-for="waistToHem" class="measurement"/>
+                    <input type="text" asp-for="shoulderToWrist" class="measurement"/><br />
+
+                    <label asp-for="head" class="measurement">Head</label>                    
+                    <label asp-for="neck" class="measurement">Neck</label>                   
+                    <label asp-for="armscye" class="measurement">Armscye</label>
+                    <label asp-for="elbow" class="measurement">Elbow</label>    
+                    <label asp-for="wrist" class="measurement">Wrist</label><br />
+                    <input type="text" asp-for="head" class="measurement"/>
+                    <input type="text" asp-for="neck" class="measurement"/>
+                    <input type="text" asp-for="armscye" class="measurement"/>
+                    <input type="text" asp-for="elbow" class="measurement"/>
+                    <input type="text" asp-for="wrist" class="measurement"/><br />
+
+                    <label asp-for="inseam" class="measurement">Inseam</label><br />
+                    <input type="text" asp-for="inseam" class="measurement"/><br />
+
+                </div>
+
+                <div class="sub-section">
+                    <label asp-for="notes">Notes</label><br />
+                    <textarea asp-for="notes" rows="3"></textarea><br />
+
+                    <label asp-for="eraStart" class="measurement">Approx. era start</label>
+                    <label asp-for="eraEnd" class="measurement">Approx. era end</label><br />
+                    
+                    <!--they are numbers to make filtering possible-->
+                    <input type="number" asp-for="eraStart" class="measurement"/>
+                    <input type="number" asp-for="eraEnd" class="measurement"/><br />
+
+                    <label asp-for="color1">Colors</label><br />
+                    <input type="text" asp-for="color1" class="measurement"/>
+                    <input type="text" asp-for="color2" class="measurement"/><br />
+
+                    <label asp-for="image">Image</label><br />
+                    <input type="file" asp-for="image"/><br />
+
+                    <input type="submit" id="submit" value="Add costume" class="large-submit"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

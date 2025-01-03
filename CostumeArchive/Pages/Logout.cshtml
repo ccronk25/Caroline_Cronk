@@ -1,0 +1,16 @@
+﻿@page
+@model CostumeArchive.Pages.LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<html>
+<body>
+    <div id="logout" class="text-center">
+        <h4>Logout successful.</h4>
+        <form id="returnToLogin" action="/Index">
+            <input type="submit" value="Return to login" class="large-submit"/>
+        </form>
+    </div>
+</body>
+</html>

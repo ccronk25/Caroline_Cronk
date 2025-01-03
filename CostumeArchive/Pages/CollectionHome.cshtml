@@ -1,0 +1,31 @@
+﻿@page
+@model CostumeArchive.Pages.CollectionHomeModel
+@{
+	ViewData["Title"] = "Collection Home";
+
+
+}
+
+<html>
+<body>
+	<partial name="~/Pages/Shared/_LoginSession.cshtml" />
+
+	<div class ="text-center">
+		<h4>@Model.collectionName</h4>
+	</div>
+
+	<partial name="~/Pages/Shared/_Search.cshtml" />
+
+	<form id="back" action="/MyCollections">
+		<input class="float-left" type="submit" value="< Back" />
+	</form>
+
+	@if (Model.canAdd)
+	{
+		<form id="createCostume" action="/AddCostume" method="get">
+			<input type="hidden" name="collection" value="@Model.collectionID"/>
+			<input class="submit-wide" type="submit" value="Add costume +" />
+		</form>
+	}
+</body>
+</html>

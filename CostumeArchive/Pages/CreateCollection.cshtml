@@ -1,0 +1,39 @@
+﻿@page
+@model CostumeArchive.Pages.CreateCollectionModel
+@{
+	ViewData["Title"] = "Create Collection";
+}
+
+<html>
+    <body>
+        <partial name="~/Pages/Shared/_LoginSession.cshtml" />
+        <div class="section page-long">
+            <form id="back" class="float-left" action="/MyCollections">
+                <input type="submit" value="< Back" />
+            </form>
+            
+            <h4 class="tab" >Create Collection</h4>
+
+            <form class="tab" id="createCollection" method="post">
+                <label asp-for="name">Collection Name</label>
+                <span asp-validation-for="name"></span><br />
+                <input type="text" asp-for="name" /><br />
+    
+                <label asp-for="location">Location</label>
+                <span asp-validation-for="location"></span><br />
+                <input type="text" asp-for="location" /><br />
+
+                <label asp-for="privacy">Privacy:</label>
+                <span asp-validation-for="privacy"></span><br />
+                <select asp-for="privacy">
+                    <option value="locked">Visible only to me</option>
+                    <option value="inviteOnly">Invite only</option>
+                    <option value="private">Anyone can request access</option>
+                    <option value="public">Public access</option>
+                </select><br />
+
+                <input class="large-submit" type="submit" id="submit" value="Create collection" />
+            </form>
+        </div>
+    </body>
+</html>

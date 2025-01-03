@@ -1,0 +1,53 @@
+﻿:root {
+    --gradient-start: #3b07aa;
+    --gradient-end: #578df7;
+    --text-color: #fff;
+}
+
+html {
+    height: 100%;
+}
+
+body { /* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient */
+    width: 100%;
+    background: linear-gradient(to right top, var(--gradient-start), var(--gradient-end));
+}
+
+.login {
+    border: 3px solid var(--text-color);
+    background-color: rgba(255, 255, 255, .25);
+    border-radius: 15px;
+}
+
+.login-box {
+    width: 350px;
+    min-height: 250px;
+    margin: auto;
+    padding: 15px;
+}
+
+input {
+    width: 300px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+input[type=submit] {
+    color: var(--text-color);
+    background-color: var(--gradient-start);
+    border: none;
+}
+
+input[type=submit]:hover {
+    background-color: var(--bs-primary);
+}
+
+::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.field-validation-error {
+    font-size: 12px;
+    margin-top: 0;
+    color: gainsboro;
+}
