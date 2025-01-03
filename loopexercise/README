@@ -1,3 +1,5 @@
 Loop Exercise
 
-This was another early Java project, an exercise for my introductory computer science course.
+This was another early Java project, an exercise for my introductory computer science course. 
+The project had two tasks. The first was to take a name as input, then print it backwards. 
+The second was to take a symbol and a number as input, then print three shapes (a square, a square with a slash, and an hourglass) in those dimensions made out of the symbol.
